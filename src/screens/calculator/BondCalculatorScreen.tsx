@@ -1,20 +1,23 @@
-import React, { memo } from 'react';
+import React, {memo, useMemo} from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   StatusBar,
-  View,
+  TouchableOpacity,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {useTranslation} from 'react-i18next';
 import CashFlowTable from './components/CashFlowTable/CashFlowTable';
 import InputSection from './components/InputSection/InputSection';
 import ResultsSection from './components/ResultsSection/ResultsSection';
-import { useBondCalculator } from './hooks/useBondCalculator';
-import styles from './BondCalculatorScreen.style';
+import {useBondCalculator} from './hooks/useBondCalculator';
+import createStyles from './BondCalculatorScreen.style';
 import CustomText from '../../components/CustomText/CustomText';
+import CustomView from '../../components/CustomView/CustomView';
 
 const BondCalculatorScreen = () => {
+  const {t, i18n} = useTranslation();
   const {
     inputs,
     result,
@@ -25,9 +28,17 @@ const BondCalculatorScreen = () => {
     handleReset,
   } = useBondCalculator();
 
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en');
+  };
+  const styles = useMemo(() => createStyles(i18n), [i18n]);
+
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="light-content" backgroundColor={styles.safeArea.backgroundColor} />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={styles.safeArea.backgroundColor}
+      />
       <KeyboardAvoidingView
         style={styles.keyboardAvoid}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -36,15 +47,26 @@ const BondCalculatorScreen = () => {
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
+          <CustomView style={styles.headerRow}>
+            <CustomView style={styles.headerContent}>
+              <CustomText style={styles.headerTitle}>
+                {t('header.title')}
+              </CustomText>
+              <CustomText style={styles.headerSubtitle}>
+                {t('header.subtitle')}
+              </CustomText>
+            </CustomView>
+            <TouchableOpacity
+              style={styles.langButton}
+              onPress={toggleLanguage}
+              activeOpacity={0.8}>
+              <CustomText style={styles.langButtonText}>
+                {t('language.switchTo')}
+              </CustomText>
+            </TouchableOpacity>
+          </CustomView>
 
-          <View style={styles.header}>
-            <CustomText style={styles.headerTitle}>Bond Yield{'\n'}Calculator</CustomText>
-            <CustomText style={styles.headerSubtitle}>
-              Analyze bond performance and cash flow
-            </CustomText>
-          </View>
-
-          <View style={styles.divider} />
+          <CustomView style={styles.divider} />
 
           <InputSection
             inputs={inputs}
@@ -57,13 +79,12 @@ const BondCalculatorScreen = () => {
 
           {isCalculated && result && (
             <>
-              <View style={styles.divider} />
+              <CustomView style={styles.divider} />
               <ResultsSection results={result.results} />
-              <View style={styles.divider} />
+              <CustomView style={styles.divider} />
               <CashFlowTable data={result.cashFlowSchedule} />
             </>
           )}
-
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>

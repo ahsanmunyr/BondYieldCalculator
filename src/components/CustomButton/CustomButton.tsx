@@ -1,12 +1,12 @@
-import React, { memo } from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import React, {memo} from 'react';
+import {Text, TouchableOpacity, TouchableOpacityProps} from 'react-native';
 import styles from './CustomButton.style';
 
 interface CustomButtonProps extends TouchableOpacityProps {
   title: string;
 }
 
-const CustomButton = ({ title, disabled, ...props }: CustomButtonProps) => {
+const CustomButton = ({title, disabled, ...props}: CustomButtonProps) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}

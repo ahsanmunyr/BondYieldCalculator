@@ -1,6 +1,6 @@
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { Colors } from '../../../../constants/colors';
-import { BorderRadius, FontSize, Spacing } from '../../../../constants/spacing';
+import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
+import {Colors} from '../../../../constants/colors';
+import {BorderRadius, FontSize, Spacing} from '../../../../constants/spacing';
 
 interface Style {
   container: ViewStyle;

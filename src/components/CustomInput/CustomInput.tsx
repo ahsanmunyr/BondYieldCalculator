@@ -1,5 +1,7 @@
-import React, { memo, useState } from 'react';
-import { TextInput, TextInputProps, Text, View } from 'react-native';
+import React, {memo, useState} from 'react';
+import {TextInput, TextInputProps, Text} from 'react-native';
+import CustomText from '../CustomText/CustomText';
+import CustomView from '../CustomView/CustomView';
 import styles from './CustomInput.style';
 
 interface CustomInputProps extends TextInputProps {
@@ -8,13 +10,13 @@ interface CustomInputProps extends TextInputProps {
   prefix?: string;
 }
 
-const CustomInput = ({ label, error, prefix, ...props }: CustomInputProps) => {
+const CustomInput = ({label, error, prefix, ...props}: CustomInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <View style={styles.wrapper}>
-      <Text style={styles.label}>{label}</Text>
-      <View
+    <CustomView style={styles.wrapper}>
+      <CustomText style={styles.label}>{label}</CustomText>
+      <CustomView
         style={[
           styles.inputContainer,
           isFocused && styles.inputContainerFocused,
@@ -28,9 +30,9 @@ const CustomInput = ({ label, error, prefix, ...props }: CustomInputProps) => {
           onBlur={() => setIsFocused(false)}
           {...props}
         />
-      </View>
-      {!!error && <Text style={styles.errorText}>{error}</Text>}
-    </View>
+      </CustomView>
+      {!!error && <CustomText style={styles.errorText}>{error}</CustomText>}
+    </CustomView>
   );
 };
 

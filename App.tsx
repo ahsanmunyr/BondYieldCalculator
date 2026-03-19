@@ -1,5 +1,6 @@
+import './src/i18n';
 import React from 'react';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import BondCalculatorScreen from './src/screens/calculator/BondCalculatorScreen';
 
 function App() {

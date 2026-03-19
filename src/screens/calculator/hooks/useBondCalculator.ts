@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { BondCalculationResult, BondInputs } from '../../../types/bond.types';
 import { calculateBond } from '../../../utils/bondCalculations';
 import { UseBondCalculatorReturnType } from './types';
+import i18n from '../../../i18n';
 
 const INITIAL_INPUTS: BondInputs = {
   faceValue: '',
@@ -20,13 +21,13 @@ function validateInputs(inputs: BondInputs): Partial<Record<keyof BondInputs, st
   const yearsToMaturity = parseFloat(inputs.yearsToMaturity);
 
   if (!inputs.faceValue || isNaN(faceValue) || faceValue <= 0) {
-    errors.faceValue = 'Enter a valid face value greater than 0';
+    errors.faceValue = i18n.t('error.faceValue');
   }
   if (!inputs.couponRate || isNaN(couponRate) || couponRate < 0 || couponRate > 100) {
-    errors.couponRate = 'Enter a valid coupon rate between 0 and 100';
+    errors.couponRate = i18n.t('error.couponRate');
   }
   if (!inputs.marketPrice || isNaN(marketPrice) || marketPrice <= 0) {
-    errors.marketPrice = 'Enter a valid market price greater than 0';
+    errors.marketPrice = i18n.t('error.marketPrice');
   }
   if (
     !inputs.yearsToMaturity ||
@@ -34,7 +35,7 @@ function validateInputs(inputs: BondInputs): Partial<Record<keyof BondInputs, st
     yearsToMaturity <= 0 ||
     !Number.isInteger(yearsToMaturity)
   ) {
-    errors.yearsToMaturity = 'Enter a valid whole number of years';
+    errors.yearsToMaturity = i18n.t('error.yearsToMaturity');
   }
 
   return errors;

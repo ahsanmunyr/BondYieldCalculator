@@ -1,0 +1,62 @@
+{
+  "header": {
+    "title": "حاسبة عائد\nالسند",
+    "subtitle": "تحليل أداء السند والتدفق النقدي"
+  },
+  "language": {
+    "switchTo": "English"
+  },
+  "input": {
+    "bondDetails": "تفاصيل السند",
+    "faceValue": "القيمة الاسمية",
+    "marketPrice": "سعر السوق",
+    "couponRate": "معدل الكوبون",
+    "yearsToMaturity": "سنوات الاستحقاق",
+    "faceValuePlaceholder": "1000",
+    "marketPricePlaceholder": "950",
+    "couponRatePlaceholder": "5.00",
+    "yearsToMaturityPlaceholder": "10"
+  },
+  "button": {
+    "calculate": "احسب العائد",
+    "recalculate": "إعادة الحساب",
+    "reset": "إعادة التعيين"
+  },
+  "frequency": {
+    "label": "تكرار الكوبون",
+    "annual": "سنوي",
+    "semiAnnual": "نصف سنوي"
+  },
+  "results": {
+    "title": "النتائج",
+    "currentYield": "العائد الحالي",
+    "currentYieldSub": "الدخل السنوي / السعر",
+    "ytm": "العائد حتى الاستحقاق",
+    "ytmSub": "إجمالي العائد السنوي",
+    "totalInterest": "إجمالي الفائدة المكتسبة",
+    "totalInterestSub": "مجموع جميع مدفوعات الكوبون",
+    "priceStatus": "حالة السعر",
+    "premium": "علاوة",
+    "premiumDesc": "السند مسعّر فوق القيمة الاسمية",
+    "discount": "خصم",
+    "discountDesc": "السند مسعّر تحت القيمة الاسمية",
+    "par": "بالقيمة الاسمية",
+    "parDesc": "السند مسعّر بالقيمة الاسمية",
+    "abovePar": "فوق القيمة الاسمية",
+    "belowPar": "تحت القيمة الاسمية"
+  },
+  "cashFlow": {
+    "title": "جدول التدفق النقدي",
+    "period": "#",
+    "date": "التاريخ",
+    "payment": "الدفعة",
+    "cumulative": "التراكمي",
+    "principal": "رأس المال"
+  },
+  "error": {
+    "faceValue": "أدخل قيمة اسمية صحيحة أكبر من 0",
+    "couponRate": "أدخل معدل كوبون صحيح بين 0 و 100",
+    "marketPrice": "أدخل سعر سوق صحيح أكبر من 0",
+    "yearsToMaturity": "أدخل عدداً صحيحاً من السنوات"
+  }
+}

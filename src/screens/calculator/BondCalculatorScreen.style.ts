@@ -1,46 +1,74 @@
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { Colors } from '../../constants/colors';
-import { FontSize, Spacing } from '../../constants/spacing';
+import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
+import {Colors} from '../../constants/colors';
+import {BorderRadius, FontSize, Spacing} from '../../constants/spacing';
 
 interface Style {
   safeArea: ViewStyle;
   keyboardAvoid: ViewStyle;
   scrollContent: ViewStyle;
-  header: ViewStyle;
+  headerRow: ViewStyle;
+  headerContent: ViewStyle;
   headerTitle: TextStyle;
   headerSubtitle: TextStyle;
+  langButton: ViewStyle;
+  langButtonText: TextStyle;
   divider: ViewStyle;
 }
 
-export default StyleSheet.create<Style>({
-  safeArea: {
-    flex: 1,
-    backgroundColor: Colors.primary,
-  },
-  keyboardAvoid: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: Spacing.xl,
-    paddingBottom: Spacing.xxxl,
-    gap: Spacing.xxl,
-  },
-  header: {
-    gap: Spacing.xs,
-  },
-  headerTitle: {
-    fontSize: FontSize.xxxl,
-    color: Colors.textPrimary,
-    fontWeight: '800',
-    letterSpacing: -0.5,
-  },
-  headerSubtitle: {
-    fontSize: FontSize.sm,
-    color: Colors.textMuted,
-    letterSpacing: 0.2,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: Colors.surfaceBorder,
-  },
-});
+export default (i18n: {language: string}) => {
+  return StyleSheet.create<Style>({
+    safeArea: {
+      flex: 1,
+      backgroundColor: Colors.primary,
+    },
+    keyboardAvoid: {
+      flex: 1,
+    },
+    scrollContent: {
+      padding: Spacing.xl,
+      paddingBottom: Spacing.xxxl,
+      gap: Spacing.xxl,
+    },
+    headerRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      width: '100%',
+    },
+    headerContent: {
+      gap: Spacing.xs,
+    },
+    headerTitle: {
+      fontSize: FontSize.xxxl,
+      color: Colors.textPrimary,
+      fontWeight: '800',
+      letterSpacing: -0.5,
+      backgroundColor: 'red',
+      textAlign: i18n.language === 'en' ? 'left' : 'right',
+    },
+    headerSubtitle: {
+      fontSize: FontSize.sm,
+      color: Colors.textMuted,
+      letterSpacing: 0.2,
+    },
+    langButton: {
+      paddingHorizontal: Spacing.md,
+      paddingVertical: Spacing.sm,
+      backgroundColor: Colors.surface,
+      borderRadius: BorderRadius.md,
+      borderWidth: 1,
+      borderColor: Colors.surfaceBorder,
+      marginLeft: Spacing.md,
+    },
+    langButtonText: {
+      fontSize: FontSize.sm,
+      color: Colors.accent,
+      fontWeight: '600',
+      textAlign: 'center',
+    },
+    divider: {
+      height: 1,
+      backgroundColor: Colors.surfaceBorder,
+    },
+  });
+};

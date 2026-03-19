@@ -1,7 +1,9 @@
-import React, { memo } from 'react';
-import { TouchableOpacity, View } from 'react-native';
-import { CouponFrequency } from '../../types/bond.types';
+import React, {memo} from 'react';
+import {TouchableOpacity} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {CouponFrequency} from '../../types/bond.types';
 import CustomText from '../CustomText/CustomText';
+import CustomView from '../CustomView/CustomView';
 import styles from './FrequencySelector.style';
 
 interface FrequencySelectorProps {
@@ -9,16 +11,18 @@ interface FrequencySelectorProps {
   onChange: (value: CouponFrequency) => void;
 }
 
-const OPTIONS: { label: string; value: CouponFrequency }[] = [
-  { label: 'Annual', value: 'annual' },
-  { label: 'Semi-Annual', value: 'semi-annual' },
-];
+const FrequencySelector = ({value, onChange}: FrequencySelectorProps) => {
+  const {t} = useTranslation();
 
-const FrequencySelector = ({ value, onChange }: FrequencySelectorProps) => {
+  const OPTIONS: {label: string; value: CouponFrequency}[] = [
+    {label: t('frequency.annual'), value: 'annual'},
+    {label: t('frequency.semiAnnual'), value: 'semi-annual'},
+  ];
+
   return (
-    <View style={styles.wrapper}>
-      <CustomText style={styles.label}>Coupon Frequency</CustomText>
-      <View style={styles.container}>
+    <CustomView style={styles.wrapper}>
+      <CustomText style={styles.label}>{t('frequency.label')}</CustomText>
+      <CustomView style={styles.container}>
         {OPTIONS.map(option => {
           const isActive = option.value === value;
           return (
@@ -33,8 +37,8 @@ const FrequencySelector = ({ value, onChange }: FrequencySelectorProps) => {
             </TouchableOpacity>
           );
         })}
-      </View>
-    </View>
+      </CustomView>
+    </CustomView>
   );
 };
 

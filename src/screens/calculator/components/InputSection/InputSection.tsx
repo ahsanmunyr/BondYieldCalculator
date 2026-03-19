@@ -1,10 +1,11 @@
-import React, { memo } from 'react';
-import { View } from 'react-native';
+import React, {memo} from 'react';
+import {useTranslation} from 'react-i18next';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import CustomInput from '../../../../components/CustomInput/CustomInput';
 import CustomText from '../../../../components/CustomText/CustomText';
+import CustomView from '../../../../components/CustomView/CustomView';
 import FrequencySelector from '../../../../components/FrequencySelector/FrequencySelector';
-import { BondInputs, CouponFrequency } from '../../../../types/bond.types';
+import {BondInputs, CouponFrequency} from '../../../../types/bond.types';
 import styles from './InputSection.style';
 
 interface InputSectionProps {
@@ -24,83 +25,85 @@ const InputSection = ({
   onCalculate,
   onReset,
 }: InputSectionProps) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.card}>
-        <CustomText style={styles.cardTitle}>Bond Details</CustomText>
+  const {t} = useTranslation();
 
-        <View style={styles.fieldRow}>
-          <View style={styles.fieldFlex}>
+  return (
+    <CustomView style={styles.container}>
+      <CustomView style={styles.card}>
+        <CustomText style={styles.cardTitle}>{t('input.bondDetails')}</CustomText>
+
+        <CustomView style={styles.fieldRow}>
+          <CustomView style={styles.fieldFlex}>
             <CustomInput
-              label="Face Value"
+              label={t('input.faceValue')}
               prefix="$"
-              placeholder="1000"
+              placeholder={t('input.faceValuePlaceholder')}
               keyboardType="numeric"
               value={inputs.faceValue}
               onChangeText={v => onInputChange('faceValue', v)}
               error={errors.faceValue}
               returnKeyType="next"
             />
-          </View>
-          <View style={styles.fieldFlex}>
+          </CustomView>
+          <CustomView style={styles.fieldFlex}>
             <CustomInput
-              label="Market Price"
+              label={t('input.marketPrice')}
               prefix="$"
-              placeholder="950"
+              placeholder={t('input.marketPricePlaceholder')}
               keyboardType="numeric"
               value={inputs.marketPrice}
               onChangeText={v => onInputChange('marketPrice', v)}
               error={errors.marketPrice}
               returnKeyType="next"
             />
-          </View>
-        </View>
+          </CustomView>
+        </CustomView>
 
-        <View style={styles.fieldRow}>
-          <View style={styles.fieldFlex}>
+        <CustomView style={styles.fieldRow}>
+          <CustomView style={styles.fieldFlex}>
             <CustomInput
-              label="Coupon Rate"
+              label={t('input.couponRate')}
               prefix="%"
-              placeholder="5.00"
+              placeholder={t('input.couponRatePlaceholder')}
               keyboardType="numeric"
               value={inputs.couponRate}
               onChangeText={v => onInputChange('couponRate', v)}
               error={errors.couponRate}
               returnKeyType="next"
             />
-          </View>
-          <View style={styles.fieldFlex}>
+          </CustomView>
+          <CustomView style={styles.fieldFlex}>
             <CustomInput
-              label="Years to Maturity"
-              placeholder="10"
+              label={t('input.yearsToMaturity')}
+              placeholder={t('input.yearsToMaturityPlaceholder')}
               keyboardType="numeric"
               value={inputs.yearsToMaturity}
               onChangeText={v => onInputChange('yearsToMaturity', v)}
               error={errors.yearsToMaturity}
               returnKeyType="done"
             />
-          </View>
-        </View>
+          </CustomView>
+        </CustomView>
 
         <FrequencySelector
           value={inputs.couponFrequency}
           onChange={v => onInputChange('couponFrequency', v as CouponFrequency)}
         />
-      </View>
+      </CustomView>
 
       {isCalculated ? (
-        <View style={styles.fieldRow}>
-          <View style={styles.fieldFlex}>
-            <CustomButton title="Recalculate" onPress={onCalculate} />
-          </View>
-          <View style={styles.fieldFlex}>
-            <CustomButton title="Reset" onPress={onReset} />
-          </View>
-        </View>
+        <CustomView style={styles.fieldRow}>
+          <CustomView style={styles.fieldFlex}>
+            <CustomButton title={t('button.recalculate')} onPress={onCalculate} />
+          </CustomView>
+          <CustomView style={styles.fieldFlex}>
+            <CustomButton title={t('button.reset')} onPress={onReset} />
+          </CustomView>
+        </CustomView>
       ) : (
-        <CustomButton title="Calculate Yield" onPress={onCalculate} />
+        <CustomButton title={t('button.calculate')} onPress={onCalculate} />
       )}
-    </View>
+    </CustomView>
   );
 };
 

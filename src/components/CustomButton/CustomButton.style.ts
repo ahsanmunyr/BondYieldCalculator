@@ -1,6 +1,6 @@
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { Colors } from '../../constants/colors';
-import { BorderRadius, FontSize } from '../../constants/spacing';
+import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
+import {Colors} from '../../constants/colors';
+import {BorderRadius, FontSize} from '../../constants/spacing';
 
 interface Style {
   button: ViewStyle;

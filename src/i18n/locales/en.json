@@ -1,0 +1,62 @@
+{
+  "header": {
+    "title": "Bond Yield\nCalculator",
+    "subtitle": "Analyze bond performance and cash flow"
+  },
+  "language": {
+    "switchTo": "عربي"
+  },
+  "input": {
+    "bondDetails": "Bond Details",
+    "faceValue": "Face Value",
+    "marketPrice": "Market Price",
+    "couponRate": "Coupon Rate",
+    "yearsToMaturity": "Years to Maturity",
+    "faceValuePlaceholder": "1000",
+    "marketPricePlaceholder": "950",
+    "couponRatePlaceholder": "5.00",
+    "yearsToMaturityPlaceholder": "10"
+  },
+  "button": {
+    "calculate": "Calculate Yield",
+    "recalculate": "Recalculate",
+    "reset": "Reset"
+  },
+  "frequency": {
+    "label": "Coupon Frequency",
+    "annual": "Annual",
+    "semiAnnual": "Semi-Annual"
+  },
+  "results": {
+    "title": "Results",
+    "currentYield": "Current Yield",
+    "currentYieldSub": "Annual income / price",
+    "ytm": "Yield to Maturity",
+    "ytmSub": "Total annualized return",
+    "totalInterest": "Total Interest Earned",
+    "totalInterestSub": "Sum of all coupon payments",
+    "priceStatus": "Price Status",
+    "premium": "PREMIUM",
+    "premiumDesc": "Bond priced above face value",
+    "discount": "DISCOUNT",
+    "discountDesc": "Bond priced below face value",
+    "par": "AT PAR",
+    "parDesc": "Bond priced at face value",
+    "abovePar": "above par",
+    "belowPar": "below par"
+  },
+  "cashFlow": {
+    "title": "Cash Flow Schedule",
+    "period": "#",
+    "date": "Date",
+    "payment": "Payment",
+    "cumulative": "Cumulative",
+    "principal": "Principal"
+  },
+  "error": {
+    "faceValue": "Enter a valid face value greater than 0",
+    "couponRate": "Enter a valid coupon rate between 0 and 100",
+    "marketPrice": "Enter a valid market price greater than 0",
+    "yearsToMaturity": "Enter a valid whole number of years"
+  }
+}
