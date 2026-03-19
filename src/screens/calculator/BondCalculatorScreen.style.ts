@@ -16,6 +16,8 @@ interface Style {
 }
 
 export default (i18n: {language: string}) => {
+  const isArabic = i18n.language === 'ar';
+
   return StyleSheet.create<Style>({
     safeArea: {
       flex: 1,
@@ -36,20 +38,22 @@ export default (i18n: {language: string}) => {
       width: '100%',
     },
     headerContent: {
+      flex: 1,
       gap: Spacing.xs,
+      alignItems: 'flex-start',
     },
     headerTitle: {
       fontSize: FontSize.xxxl,
       color: Colors.textPrimary,
       fontWeight: '800',
       letterSpacing: -0.5,
-      backgroundColor: 'red',
-      textAlign: i18n.language === 'en' ? 'left' : 'right',
+      textAlign: isArabic ? 'right' : 'left',
     },
     headerSubtitle: {
       fontSize: FontSize.sm,
       color: Colors.textMuted,
       letterSpacing: 0.2,
+      textAlign: isArabic ? 'right' : 'left',
     },
     langButton: {
       paddingHorizontal: Spacing.md,
@@ -58,7 +62,8 @@ export default (i18n: {language: string}) => {
       borderRadius: BorderRadius.md,
       borderWidth: 1,
       borderColor: Colors.surfaceBorder,
-      marginLeft: Spacing.md,
+      marginLeft: isArabic ? 0 : Spacing.md,
+      marginRight: isArabic ? Spacing.md : 0,
     },
     langButtonText: {
       fontSize: FontSize.sm,

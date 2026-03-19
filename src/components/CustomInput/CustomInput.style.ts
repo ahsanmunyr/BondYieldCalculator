@@ -54,6 +54,6 @@ export default StyleSheet.create<Style>({
   prefix: {
     fontSize: FontSize.md,
     color: Colors.textMuted,
-    marginRight: Spacing.xs,
+    marginEnd: Spacing.xs,
   },
 });
