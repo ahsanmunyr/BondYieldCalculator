@@ -42,7 +42,7 @@ const InputSection = ({
               keyboardType="numeric"
               value={inputs.faceValue}
               onChangeText={v => onInputChange('faceValue', v)}
-              error={errors.faceValue}
+              error={errors.faceValue ? t(errors.faceValue) : undefined}
               returnKeyType="next"
             />
           </CustomView>
@@ -54,7 +54,7 @@ const InputSection = ({
               keyboardType="numeric"
               value={inputs.marketPrice}
               onChangeText={v => onInputChange('marketPrice', v)}
-              error={errors.marketPrice}
+              error={errors.marketPrice ? t(errors.marketPrice) : undefined}
               returnKeyType="next"
             />
           </CustomView>
@@ -69,7 +69,7 @@ const InputSection = ({
               keyboardType="numeric"
               value={inputs.couponRate}
               onChangeText={v => onInputChange('couponRate', v)}
-              error={errors.couponRate}
+              error={errors.couponRate ? t(errors.couponRate) : undefined}
               returnKeyType="next"
             />
           </CustomView>
@@ -80,7 +80,7 @@ const InputSection = ({
               keyboardType="numeric"
               value={inputs.yearsToMaturity}
               onChangeText={v => onInputChange('yearsToMaturity', v)}
-              error={errors.yearsToMaturity}
+              error={errors.yearsToMaturity ? t(errors.yearsToMaturity) : undefined}
               returnKeyType="done"
             />
           </CustomView>

@@ -1,8 +1,8 @@
 import React, {memo} from 'react';
-import {TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {CouponFrequency} from '../../types/bond.types';
 import CustomText from '../CustomText/CustomText';
+import CustomTouchable from '../CustomTouchable/CustomTouchable';
 import CustomView from '../CustomView/CustomView';
 import styles from './FrequencySelector.style';
 
@@ -26,7 +26,7 @@ const FrequencySelector = ({value, onChange}: FrequencySelectorProps) => {
         {OPTIONS.map(option => {
           const isActive = option.value === value;
           return (
-            <TouchableOpacity
+            <CustomTouchable
               key={option.value}
               style={[styles.option, isActive && styles.optionActive]}
               onPress={() => onChange(option.value)}
@@ -34,7 +34,7 @@ const FrequencySelector = ({value, onChange}: FrequencySelectorProps) => {
               <CustomText style={[styles.optionText, isActive && styles.optionTextActive]}>
                 {option.label}
               </CustomText>
-            </TouchableOpacity>
+            </CustomTouchable>
           );
         })}
       </CustomView>

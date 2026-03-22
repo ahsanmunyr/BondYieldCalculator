@@ -33,7 +33,7 @@ const CustomInput = ({label, error, prefix, ...props}: CustomInputProps) => {
           onBlur={() => setIsFocused(false)}
           {...props}
         />
-        {isRTL && !!prefix && <Text style={styles.prefix}>{prefix}</Text>}
+        {isRTL && !!prefix && <Text style={[styles.prefix, {marginEnd: 0, marginLeft: 4}]}>{prefix}</Text>}
       </CustomView>
       {!!error && <CustomText style={styles.errorText}>{error}</CustomText>}
     </CustomView>

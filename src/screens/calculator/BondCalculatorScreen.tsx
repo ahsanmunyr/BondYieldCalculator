@@ -4,7 +4,6 @@ import {
   Platform,
   ScrollView,
   StatusBar,
-  TouchableOpacity,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
@@ -14,6 +13,7 @@ import ResultsSection from './components/ResultsSection/ResultsSection';
 import {useBondCalculator} from './hooks/useBondCalculator';
 import createStyles from './BondCalculatorScreen.style';
 import CustomText from '../../components/CustomText/CustomText';
+import CustomTouchable from '../../components/CustomTouchable/CustomTouchable';
 import CustomView from '../../components/CustomView/CustomView';
 
 const BondCalculatorScreen = () => {
@@ -56,14 +56,14 @@ const BondCalculatorScreen = () => {
                 {t('header.subtitle')}
               </CustomText>
             </CustomView>
-            <TouchableOpacity
+            <CustomTouchable
               style={styles.langButton}
               onPress={toggleLanguage}
               activeOpacity={0.8}>
               <CustomText style={styles.langButtonText}>
                 {t('language.switchTo')}
               </CustomText>
-            </TouchableOpacity>
+            </CustomTouchable>
           </CustomView>
 
           <CustomView style={styles.divider} />

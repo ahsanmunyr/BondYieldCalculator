@@ -1,5 +1,7 @@
 import React, {memo} from 'react';
-import {Text, TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import {TouchableOpacityProps} from 'react-native';
+import CustomTouchable from '../CustomTouchable/CustomTouchable';
+import CustomText from '../CustomText/CustomText';
 import styles from './CustomButton.style';
 
 interface CustomButtonProps extends TouchableOpacityProps {
@@ -8,13 +10,13 @@ interface CustomButtonProps extends TouchableOpacityProps {
 
 const CustomButton = ({title, disabled, ...props}: CustomButtonProps) => {
   return (
-    <TouchableOpacity
+    <CustomTouchable
       activeOpacity={0.8}
       style={[styles.button, disabled && styles.buttonDisabled]}
       disabled={disabled}
       {...props}>
-      <Text style={[styles.label, disabled && styles.labelDisabled]}>{title}</Text>
-    </TouchableOpacity>
+      <CustomText style={[styles.label, disabled && styles.labelDisabled]}>{title}</CustomText>
+    </CustomTouchable>
   );
 };
 
