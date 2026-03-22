@@ -7,14 +7,14 @@ import {
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
-import CashFlowTable from './components/CashFlowTable/CashFlowTable';
-import InputSection from './components/InputSection/InputSection';
-import ResultsSection from './components/ResultsSection/ResultsSection';
-import {useBondCalculator} from './hooks/useBondCalculator';
+import CashFlowTable from '@screens/calculator/components/CashFlowTable/CashFlowTable';
+import InputSection from '@screens/calculator/components/InputSection/InputSection';
+import ResultsSection from '@screens/calculator/components/ResultsSection/ResultsSection';
+import {useBondCalculator} from '@hooks/useBondCalculator';
 import createStyles from './BondCalculatorScreen.style';
-import CustomText from '../../components/CustomText/CustomText';
-import CustomTouchable from '../../components/CustomTouchable/CustomTouchable';
-import CustomView from '../../components/CustomView/CustomView';
+import CustomText from '@components/CustomText/CustomText';
+import CustomTouchable from '@components/CustomTouchable/CustomTouchable';
+import CustomView from '@components/CustomView/CustomView';
 
 const BondCalculatorScreen = () => {
   const {t, i18n} = useTranslation();

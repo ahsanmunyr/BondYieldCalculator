@@ -1,4 +1,4 @@
-import { BondCalculationResult, BondInputs } from '../../../types/bond.types';
+import { BondCalculationResult, BondInputs } from '@types/bond.types';
 
 export interface UseBondCalculatorReturnType {
   inputs: BondInputs;

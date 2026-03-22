@@ -1,9 +1,9 @@
 import React, {memo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {CouponFrequency} from '../../types/bond.types';
-import CustomText from '../CustomText/CustomText';
-import CustomTouchable from '../CustomTouchable/CustomTouchable';
-import CustomView from '../CustomView/CustomView';
+import {CouponFrequency} from '@types/bond.types';
+import CustomText from '@components/CustomText/CustomText';
+import CustomTouchable from '@components/CustomTouchable/CustomTouchable';
+import CustomView from '@components/CustomView/CustomView';
 import styles from './FrequencySelector.style';
 
 interface FrequencySelectorProps {

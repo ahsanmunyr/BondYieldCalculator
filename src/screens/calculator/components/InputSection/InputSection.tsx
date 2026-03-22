@@ -1,11 +1,11 @@
 import React, {memo} from 'react';
 import {useTranslation} from 'react-i18next';
-import CustomButton from '../../../../components/CustomButton/CustomButton';
-import CustomInput from '../../../../components/CustomInput/CustomInput';
-import CustomText from '../../../../components/CustomText/CustomText';
-import CustomView from '../../../../components/CustomView/CustomView';
-import FrequencySelector from '../../../../components/FrequencySelector/FrequencySelector';
-import {BondInputs, CouponFrequency} from '../../../../types/bond.types';
+import CustomButton from '@components/CustomButton/CustomButton';
+import CustomInput from '@components/CustomInput/CustomInput';
+import CustomText from '@components/CustomText/CustomText';
+import CustomView from '@components/CustomView/CustomView';
+import FrequencySelector from '@components/FrequencySelector/FrequencySelector';
+import {BondInputs, CouponFrequency} from '@types/bond.types';
 import styles from './InputSection.style';
 
 interface InputSectionProps {

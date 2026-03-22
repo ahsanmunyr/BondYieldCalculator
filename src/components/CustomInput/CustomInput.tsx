@@ -1,8 +1,8 @@
 import React, {memo, useState} from 'react';
 import {TextInput, TextInputProps, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import CustomText from '../CustomText/CustomText';
-import CustomView from '../CustomView/CustomView';
+import CustomText from '@components/CustomText/CustomText';
+import CustomView from '@components/CustomView/CustomView';
 import styles from './CustomInput.style';
 
 interface CustomInputProps extends TextInputProps {

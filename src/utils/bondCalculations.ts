@@ -1,4 +1,9 @@
-import { BondCalculationResult, BondResults, CashFlowRow, CouponFrequency } from '../types/bond.types';
+import {
+  BondCalculationResult,
+  BondResults,
+  CashFlowRow,
+  CouponFrequency,
+} from '@types/bond.types';
 
 const FREQUENCY_MAP: Record<CouponFrequency, number> = {
   annual: 1,
@@ -8,7 +13,11 @@ const FREQUENCY_MAP: Record<CouponFrequency, number> = {
 /**
  * Current Yield = Annual Coupon Payment / Market Price
  */
-function calculateCurrentYield(faceValue: number, couponRate: number, marketPrice: number): number {
+function calculateCurrentYield(
+  faceValue: number,
+  couponRate: number,
+  marketPrice: number,
+): number {
   const annualCoupon = faceValue * (couponRate / 100);
   return (annualCoupon / marketPrice) * 100;
 }
@@ -106,15 +115,30 @@ export function calculateBond(
   const totalPeriods = yearsToMaturity * frequency;
   const periodicCoupon = (faceValue * (couponRate / 100)) / frequency;
 
-  const currentYield = calculateCurrentYield(faceValue, couponRate, marketPrice);
-  const ytm = calculateYTM(faceValue, marketPrice, couponRate, yearsToMaturity, frequency);
+  const currentYield = calculateCurrentYield(
+    faceValue,
+    couponRate,
+    marketPrice,
+  );
+  const ytm = calculateYTM(
+    faceValue,
+    marketPrice,
+    couponRate,
+    yearsToMaturity,
+    frequency,
+  );
   const totalInterestEarned = periodicCoupon * totalPeriods;
 
   const priceDifference = marketPrice - faceValue;
   const priceStatus: BondResults['priceStatus'] =
     priceDifference > 0 ? 'premium' : priceDifference < 0 ? 'discount' : 'par';
 
-  const cashFlowSchedule = buildCashFlowSchedule(faceValue, couponRate, yearsToMaturity, frequency);
+  const cashFlowSchedule = buildCashFlowSchedule(
+    faceValue,
+    couponRate,
+    yearsToMaturity,
+    frequency,
+  );
 
   return {
     results: {

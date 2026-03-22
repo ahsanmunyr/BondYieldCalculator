@@ -1,7 +1,7 @@
 import React, {memo} from 'react';
 import {TouchableOpacityProps} from 'react-native';
-import CustomTouchable from '../CustomTouchable/CustomTouchable';
-import CustomText from '../CustomText/CustomText';
+import CustomTouchable from '@components/CustomTouchable/CustomTouchable';
+import CustomText from '@components/CustomText/CustomText';
 import styles from './CustomButton.style';
 
 interface CustomButtonProps extends TouchableOpacityProps {

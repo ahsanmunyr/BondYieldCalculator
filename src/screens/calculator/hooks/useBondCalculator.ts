@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react';
-import { BondCalculationResult, BondInputs } from '../../../types/bond.types';
-import { calculateBond } from '../../../utils/bondCalculations';
-import { UseBondCalculatorReturnType } from './types';
+import {useCallback, useState} from 'react';
+import {BondCalculationResult, BondInputs} from '@types/bond.types';
+import {calculateBond} from '@utils/bondCalculations';
+import {UseBondCalculatorReturnType} from './types';
 
 const INITIAL_INPUTS: BondInputs = {
   faceValue: '',
@@ -47,8 +47,8 @@ export const useBondCalculator = (): UseBondCalculatorReturnType => {
   const [isCalculated, setIsCalculated] = useState(false);
 
   const handleInputChange = useCallback((field: keyof BondInputs, value: string) => {
-    setInputs(prev => ({ ...prev, [field]: value }));
-    setErrors(prev => ({ ...prev, [field]: undefined }));
+    setInputs(prev => ({...prev, [field]: value}));
+    setErrors(prev => ({...prev, [field]: undefined}));
   }, []);
 
   const handleCalculate = useCallback(() => {

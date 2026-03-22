@@ -1,10 +1,10 @@
 import React, {memo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Colors} from '../../../../constants/colors';
-import {BondResults} from '../../../../types/bond.types';
-import {formatCurrency, formatPercent} from '../../../../utils/bondCalculations';
-import CustomText from '../../../../components/CustomText/CustomText';
-import CustomView from '../../../../components/CustomView/CustomView';
+import {Colors} from '@constants/colors';
+import {BondResults} from '@types/bond.types';
+import {formatCurrency, formatPercent} from '@utils/bondCalculations';
+import CustomText from '@components/CustomText/CustomText';
+import CustomView from '@components/CustomView/CustomView';
 import styles from './ResultsSection.style';
 
 interface ResultsSectionProps {

@@ -1,10 +1,10 @@
 import React, {memo} from 'react';
 import {ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {CashFlowRow} from '../../../../types/bond.types';
-import {formatCurrency} from '../../../../utils/bondCalculations';
-import CustomText from '../../../../components/CustomText/CustomText';
-import CustomView from '../../../../components/CustomView/CustomView';
+import {CashFlowRow} from '@types/bond.types';
+import {formatCurrency} from '@utils/bondCalculations';
+import CustomText from '@components/CustomText/CustomText';
+import CustomView from '@components/CustomView/CustomView';
 import styles, {COL_WIDTHS} from './CashFlowTable.style';
 
 interface CashFlowTableProps {
