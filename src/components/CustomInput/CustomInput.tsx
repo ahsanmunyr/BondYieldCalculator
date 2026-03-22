@@ -14,7 +14,7 @@ interface CustomInputProps extends TextInputProps {
 const CustomInput = ({label, error, prefix, ...props}: CustomInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const {i18n} = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const isRTL = i18n.language.startsWith('ar');
 
   return (
     <CustomView style={styles.wrapper}>

@@ -26,7 +26,7 @@ const InputSection = ({
   onReset,
 }: InputSectionProps) => {
   const {t, i18n} = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const isRTL = i18n.language.startsWith('ar');
 
   return (
     <CustomView style={styles.container}>

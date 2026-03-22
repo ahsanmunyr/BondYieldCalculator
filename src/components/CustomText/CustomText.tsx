@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const CustomText = ({ style, children, ...props }: TextProps) => {
   const { i18n } = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const isRTL = i18n.language.startsWith('ar');
 
   return (
     <Text

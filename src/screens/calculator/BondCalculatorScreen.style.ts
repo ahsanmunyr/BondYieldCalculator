@@ -16,7 +16,7 @@ interface Style {
 }
 
 export default (i18n: {language: string}) => {
-  const isArabic = i18n.language === 'ar';
+  const isArabic = i18n.language.startsWith('ar');
 
   return StyleSheet.create<Style>({
     safeArea: {
@@ -37,7 +37,6 @@ export default (i18n: {language: string}) => {
       alignItems: 'flex-start',
     },
     headerContent: {
-      // flex: 1,
       gap: Spacing.xs,
       alignItems: isArabic ? 'flex-end' : 'flex-start',
     },

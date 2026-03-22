@@ -13,7 +13,7 @@ interface ResultsSectionProps {
 
 const ResultsSection = ({results}: ResultsSectionProps) => {
   const {t, i18n} = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const isRTL = i18n.language.startsWith('ar');
   const rtlText = isRTL ? {textAlign: 'right' as const} : {};
   const {currentYield, ytm, totalInterestEarned, priceStatus, priceDifference} = results;
 

@@ -4,10 +4,21 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:release": "cd android && ./gradlew assembleRelease && killall -9 java",
+    "android:bundle": "cd android && ./gradlew bundleRelease && killall -9 java",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
+    "ios:release": "react-native run-ios --mode=Release",
     "start": "react-native start",
-    "test": "jest"
+    "start:clean": "react-native start --reset-cache",
+    "node:clean": "rm -rf node_modules && npm cache clean --force && npm install",
+    "android:clean": "npm run node:clean && cd android && ./gradlew clean",
+    "ios:pod-reset": "cd ios && pod deintegrate && pod setup && pod install",
+    "ios:clean": "npm run node:clean && cd ios && rm -rf ~/Library/Caches/CocoaPods && rm -rf Pods && rm -rf ~/Library/Developer/Xcode/DerivedData/* && npm run ios:pod-reset",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint --fix . --ext .js,.jsx,.ts,.tsx",
+    "devtools": "react-devtools",
+    "link-assets": "npx react-native-asset"
   },
   "dependencies": {
     "i18next": "^25.8.18",

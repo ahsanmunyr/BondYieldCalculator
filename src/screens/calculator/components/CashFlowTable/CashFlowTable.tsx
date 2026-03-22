@@ -54,7 +54,7 @@ const TableRow = memo(({row, isAlt, isLast, isRTL}: TableRowProps) => {
         styles.row,
         isAlt && styles.rowAlt,
         isLast && styles.maturityRow,
-        !isLast && isLast && styles.rowLast,
+        !isLast && styles.rowLast,
         isRTL && {flexDirection: 'row-reverse'},
       ]}>
       <CustomText style={[styles.periodCell, {width: COL_WIDTHS.period}, rtlText]}>
@@ -79,7 +79,7 @@ const TableRow = memo(({row, isAlt, isLast, isRTL}: TableRowProps) => {
 
 const CashFlowTable = ({data}: CashFlowTableProps) => {
   const {t, i18n} = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const isRTL = i18n.language.startsWith('ar');
   return (
     <CustomView style={styles.container}>
       <CustomText style={[styles.sectionTitle, isRTL && {textAlign: 'right'}]}>
