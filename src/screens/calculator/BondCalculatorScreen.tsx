@@ -31,7 +31,7 @@ const BondCalculatorScreen = () => {
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en');
   };
-  const styles = useMemo(() => createStyles(i18n), [i18n.language]);
+  const styles = useMemo(() => createStyles(i18n), [i18n]);
 
   return (
     <SafeAreaView style={styles.safeArea}>
