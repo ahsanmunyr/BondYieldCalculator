@@ -25,12 +25,13 @@ const InputSection = ({
   onCalculate,
   onReset,
 }: InputSectionProps) => {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+  const isRTL = i18n.language === 'ar';
 
   return (
     <CustomView style={styles.container}>
       <CustomView style={styles.card}>
-        <CustomText style={styles.cardTitle}>{t('input.bondDetails')}</CustomText>
+        <CustomText style={[styles.cardTitle, isRTL && {textAlign: 'right'}]}>{t('input.bondDetails')}</CustomText>
 
         <CustomView style={styles.fieldRow}>
           <CustomView style={styles.fieldFlex}>

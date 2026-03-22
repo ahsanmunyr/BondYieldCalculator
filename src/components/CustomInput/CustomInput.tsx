@@ -18,14 +18,14 @@ const CustomInput = ({label, error, prefix, ...props}: CustomInputProps) => {
 
   return (
     <CustomView style={styles.wrapper}>
-      <CustomText style={styles.label}>{label}</CustomText>
+      <CustomText style={[styles.label, isRTL && {textAlign: 'right'}]}>{label}</CustomText>
       <CustomView
         style={[
           styles.inputContainer,
           isFocused && styles.inputContainerFocused,
           !!error && styles.inputContainerError,
         ]}>
-        {!!prefix && <Text style={styles.prefix}>{prefix}</Text>}
+        {!isRTL && !!prefix && <Text style={styles.prefix}>{prefix}</Text>}
         <TextInput
           style={[styles.input, isRTL && {textAlign: 'right'}]}
           placeholderTextColor="#4B5563"
@@ -33,6 +33,7 @@ const CustomInput = ({label, error, prefix, ...props}: CustomInputProps) => {
           onBlur={() => setIsFocused(false)}
           {...props}
         />
+        {isRTL && !!prefix && <Text style={styles.prefix}>{prefix}</Text>}
       </CustomView>
       {!!error && <CustomText style={styles.errorText}>{error}</CustomText>}
     </CustomView>

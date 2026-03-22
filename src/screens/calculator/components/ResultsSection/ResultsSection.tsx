@@ -12,7 +12,9 @@ interface ResultsSectionProps {
 }
 
 const ResultsSection = ({results}: ResultsSectionProps) => {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+  const isRTL = i18n.language === 'ar';
+  const rtlText = isRTL ? {textAlign: 'right' as const} : {};
   const {currentYield, ytm, totalInterestEarned, priceStatus, priceDifference} = results;
 
   const PRICE_STATUS_CONFIG = {
@@ -43,41 +45,41 @@ const ResultsSection = ({results}: ResultsSectionProps) => {
 
   return (
     <CustomView style={styles.container}>
-      <CustomText style={styles.sectionTitle}>{t('results.title')}</CustomText>
+      <CustomText style={[styles.sectionTitle, rtlText]}>{t('results.title')}</CustomText>
 
       <CustomView style={styles.grid}>
         <CustomView style={styles.card}>
-          <CustomText style={styles.cardLabel}>{t('results.currentYield')}</CustomText>
-          <CustomText style={styles.cardValue}>{formatPercent(currentYield)}</CustomText>
-          <CustomText style={styles.cardSubValue}>{t('results.currentYieldSub')}</CustomText>
+          <CustomText style={[styles.cardLabel, rtlText]}>{t('results.currentYield')}</CustomText>
+          <CustomText style={[styles.cardValue, rtlText]}>{formatPercent(currentYield)}</CustomText>
+          <CustomText style={[styles.cardSubValue, rtlText]}>{t('results.currentYieldSub')}</CustomText>
         </CustomView>
 
         <CustomView style={[styles.card, styles.highlightCard]}>
-          <CustomText style={styles.cardLabel}>{t('results.ytm')}</CustomText>
-          <CustomText style={[styles.cardValue, {color: Colors.accentLight}]}>
+          <CustomText style={[styles.cardLabel, rtlText]}>{t('results.ytm')}</CustomText>
+          <CustomText style={[styles.cardValue, {color: Colors.accentLight}, rtlText]}>
             {formatPercent(ytm)}
           </CustomText>
-          <CustomText style={styles.cardSubValue}>{t('results.ytmSub')}</CustomText>
+          <CustomText style={[styles.cardSubValue, rtlText]}>{t('results.ytmSub')}</CustomText>
         </CustomView>
 
         <CustomView style={styles.card}>
-          <CustomText style={styles.cardLabel}>{t('results.totalInterest')}</CustomText>
-          <CustomText style={styles.cardValue}>{formatCurrency(totalInterestEarned)}</CustomText>
-          <CustomText style={styles.cardSubValue}>{t('results.totalInterestSub')}</CustomText>
+          <CustomText style={[styles.cardLabel, rtlText]}>{t('results.totalInterest')}</CustomText>
+          <CustomText style={[styles.cardValue, rtlText]}>{formatCurrency(totalInterestEarned)}</CustomText>
+          <CustomText style={[styles.cardSubValue, rtlText]}>{t('results.totalInterestSub')}</CustomText>
         </CustomView>
 
         <CustomView style={styles.card}>
-          <CustomText style={styles.cardLabel}>{t('results.priceStatus')}</CustomText>
-          <CustomView style={styles.badgeRow}>
-            <CustomView style={statusConfig.badgeStyle}>
+          <CustomText style={[styles.cardLabel, rtlText]}>{t('results.priceStatus')}</CustomText>
+          <CustomView style={[styles.badgeRow, isRTL && {flexDirection: 'row-reverse'}]}>
+            <CustomView style={[statusConfig.badgeStyle, isRTL && {alignSelf: 'flex-end'}]}>
               <CustomText style={[styles.badgeText, {color: statusConfig.color}]}>
                 {statusConfig.icon} {statusConfig.label}
               </CustomText>
             </CustomView>
           </CustomView>
-          <CustomText style={styles.cardSubValue}>{statusConfig.description}</CustomText>
+          <CustomText style={[styles.cardSubValue, rtlText]}>{statusConfig.description}</CustomText>
           {priceStatus !== 'par' && (
-            <CustomText style={[styles.cardSubValue, {color: statusConfig.color}]}>
+            <CustomText style={[styles.cardSubValue, {color: statusConfig.color}, rtlText]}>
               {formatCurrency(priceDifference)}{' '}
               {priceStatus === 'premium' ? t('results.abovePar') : t('results.belowPar')}
             </CustomText>

@@ -32,15 +32,14 @@ export default (i18n: {language: string}) => {
       gap: Spacing.xxl,
     },
     headerRow: {
-      flexDirection: 'row',
+      flexDirection: isArabic ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
-      width: '100%',
     },
     headerContent: {
-      flex: 1,
+      // flex: 1,
       gap: Spacing.xs,
-      alignItems: 'flex-start',
+      alignItems: isArabic ? 'flex-end' : 'flex-start',
     },
     headerTitle: {
       fontSize: FontSize.xxxl,
