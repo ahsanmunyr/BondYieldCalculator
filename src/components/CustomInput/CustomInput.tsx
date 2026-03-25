@@ -9,12 +9,25 @@ interface CustomInputProps extends TextInputProps {
   label: string;
   error?: string;
   prefix?: string;
+  allowDecimal?: boolean;
 }
 
-const CustomInput = ({label, error, prefix, ...props}: CustomInputProps) => {
+const CustomInput = ({label, error, prefix, allowDecimal = true, onChangeText, ...props}: CustomInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const {i18n} = useTranslation();
   const isRTL = i18n.language.startsWith('ar');
+
+  const handleChangeText = (text: string) => {
+    let filtered = text;
+    if (allowDecimal) {
+      // Allow digits and a single dot only
+      filtered = text.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+    } else {
+      // Integers only — no dot allowed
+      filtered = text.replace(/[^0-9]/g, '');
+    }
+    onChangeText?.(filtered);
+  };
 
   return (
     <CustomView style={styles.wrapper}>
@@ -31,6 +44,7 @@ const CustomInput = ({label, error, prefix, ...props}: CustomInputProps) => {
           placeholderTextColor="#4B5563"
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          onChangeText={handleChangeText}
           {...props}
         />
         {isRTL && !!prefix && <Text style={[styles.prefix, {marginEnd: 0, marginLeft: 4}]}>{prefix}</Text>}

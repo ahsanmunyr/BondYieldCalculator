@@ -78,6 +78,7 @@ const InputSection = ({
               label={t('input.yearsToMaturity')}
               placeholder={t('input.yearsToMaturityPlaceholder')}
               keyboardType="numeric"
+              allowDecimal={false}
               value={inputs.yearsToMaturity}
               onChangeText={v => onInputChange('yearsToMaturity', v)}
               error={errors.yearsToMaturity ? t(errors.yearsToMaturity) : undefined}
